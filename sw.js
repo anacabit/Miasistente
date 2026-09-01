@@ -1,11 +1,11 @@
-// Miasistente — Service Worker v1
-const CACHE = 'Miasistente-v1';
+// Mi Asistente — Service Worker v1
+const CACHE = 'Mi Asistente-v1';
 const ARCHIVOS = [
-  '/Miasistente/',
-  '/Miasistente/index.html',
-  '/Miasistente/manifest.json',
-  '/Miasistente/icon-192.png',
-  '/Miasistente/icon-512.png'
+  '/Mi Asistente/',
+  '/Mi Asistente/index.html',
+  '/Mi Asistente/manifest.json',
+  '/Mi Asistente/icon-192.png',
+  '/Mi Asistente/icon-512.png'
 ];
 
 // Instalar: guarda los archivos en caché
