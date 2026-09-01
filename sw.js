@@ -2,7 +2,7 @@
 const CACHE = 'Mi Asistente-v1';
 const ARCHIVOS = [
   '/Mi Asistente/',
-  '/Miasistente/index.html',
+  '/Mi Asistente/index.html',
   '/Mi Asistente/manifest.json',
   '/Mi Asistente/icon-192.png',
   '/Mi Asistente/icon-512.png'
