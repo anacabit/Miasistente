@@ -1,34 +1,38 @@
-// Mi Asistente — Service Worker v1
-const CACHE = 'Mi Asistente-v1';
+// Mi Asistente — Service Worker v2
+const CACHE = 'miasistente-v2';
 const ARCHIVOS = [
-  '/Mi Asistente/',
-  '/Mi Asistente/index.html',
-  '/Mi Asistente/manifest.json',
-  '/Mi Asistente/icon-192.png',
-  '/Mi Asistente/icon-512.png'
+  '/Miasistente/',
+  '/Miasistente/index.html',
+  '/Miasistente/manifest.json',
+  '/Miasistente/icon-192.png',
+  '/Miasistente/icon-512.png'
 ];
 
-// Instalar: guarda los archivos en caché
-self.addEventListener('install', e => {
+self.addEventListener('install', function(e) {
   e.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(ARCHIVOS).catch(() => {}))
+    caches.open(CACHE).then(function(cache) {
+      return cache.addAll(ARCHIVOS).catch(function(){});
+    })
   );
   self.skipWaiting();
 });
 
-// Activar: limpia cachés viejas
-self.addEventListener('activate', e => {
+self.addEventListener('activate', function(e) {
   e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    )
+    caches.keys().then(function(keys) {
+      return Promise.all(
+        keys.filter(function(k){ return k !== CACHE; })
+            .map(function(k){ return caches.delete(k); })
+      );
+    })
   );
   self.clients.claim();
 });
 
-// Fetch: responde con caché si está disponible, si no va a la red
-self.addEventListener('fetch', e => {
+self.addEventListener('fetch', function(e) {
   e.respondWith(
-    caches.match(e.request).then(cached => cached || fetch(e.request).catch(() => cached))
+    caches.match(e.request).then(function(cached) {
+      return cached || fetch(e.request).catch(function(){ return cached; });
+    })
   );
 });
