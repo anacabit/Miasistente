@@ -1,5 +1,5 @@
 // Mi Asistente — Service Worker v1
-const CACHE = 'miasistente-v1';
+const CACHE = 'Miasistente-v1';
 const ARCHIVOS = [
   '/Miasistente/',
   '/Miasistente/index.html',
